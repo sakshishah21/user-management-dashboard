@@ -163,7 +163,7 @@ function UsersPage() {
     const user = selectedUserRef.current;
     if (!user?.id) return;
     saveUsers(users.filter((u) => u.id !== user.id));
-    showToast("User Deleted Successfully");
+    showToast("User Deleted Successfully", "error");
     deleteUser(user.id).catch((err) => console.log("Delete API failed", err));
     selectedUserRef.current = null;
     setShowDeleteModal(false);
