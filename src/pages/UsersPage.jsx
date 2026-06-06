@@ -57,7 +57,6 @@ function UsersPage() {
   useEffect(() => {
     if (hasFetched.current) return;
     hasFetched.current = true;
-
     const fetchUsers = async () => {
       try {
         const savedUsers = localStorage.getItem("users");
@@ -89,7 +88,6 @@ function UsersPage() {
       );
     })
     .filter((u) => (gender ? u.gender === gender : true));
-
   if (sortName === "asc")
     filteredUsers.sort((a, b) => a.firstName.localeCompare(b.firstName));
   if (sortName === "desc")

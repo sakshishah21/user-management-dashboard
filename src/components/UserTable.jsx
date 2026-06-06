@@ -20,7 +20,15 @@ function UserTable({ users, onEdit, onDelete }) {
           {users.map((user) => (
             <tr key={user.id}>
               <td>
-                <img src={user.image} alt={user.firstName} className="avatar" />
+                <img
+                  src={user.image}
+                  alt=""
+                  className="avatar"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}&background=random`;
+                  }}
+                />
               </td>
 
               <td>
